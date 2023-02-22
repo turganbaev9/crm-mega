@@ -1,7 +1,7 @@
 package model;
 
-public class Manager  extends User{
-    private  double salary;
+public class Manager extends  User{
+    private double salary;
 
     public double getSalary() {
         return salary;

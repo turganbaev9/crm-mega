@@ -2,10 +2,18 @@ package model;
 
 import java.time.LocalTime;
 
-public class Course extends  BaseEntity {
-    private  String name;
-    private  double price;
+public class Course extends BaseEntity {
+    private String name;
+    private double price;
     private CourseFormat courseFormat;
+
+    public CourseFormat getCourseFormat() {
+        return courseFormat;
+    }
+
+    public void setCourseFormat(CourseFormat courseFormat) {
+        this.courseFormat = courseFormat;
+    }
 
     public String getName() {
         return name;
@@ -23,21 +31,13 @@ public class Course extends  BaseEntity {
         this.price = price;
     }
 
-    public CourseFormat getCourseFormat() {
-        return courseFormat;
-    }
-
-    public void setCourseFormat(CourseFormat courseFormat) {
-        this.courseFormat = courseFormat;
-    }
-
     @Override
     public String toString() {
         return "Course{" +
-                super.toString()+
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", courseFormat=" + courseFormat +
+                super.toString()+'\n'+
+                "name='" + name + '\n' +
+                " price=" + price + '\n'+
+                " courseFormat=" + courseFormat +
                 '}';
     }
 }

@@ -1,21 +1,14 @@
 package model;
 
-public  abstract  class User  extends  BaseEntity{
+import java.time.LocalDateTime;
+
+public  abstract  class User extends BaseEntity {
+
 
     private String name;
-    private String surname;
-    private  String phone;
-    private  String gmail;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", phone='" + phone + '\'' +
-                ", gmail='" + gmail + '\'' +
-                '}';
-    }
+    private String surName;
+    private String phone;
+    private String email;
 
     public String getName() {
         return name;
@@ -25,12 +18,12 @@ public  abstract  class User  extends  BaseEntity{
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getSurName() {
+        return surName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setSurName(String surName) {
+        this.surName = surName;
     }
 
     public String getPhone() {
@@ -41,11 +34,21 @@ public  abstract  class User  extends  BaseEntity{
         this.phone = phone;
     }
 
-    public String getGmail() {
-        return gmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setGmail(String gmail) {
-        this.gmail = gmail;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\''+ "\n"+
+                "surName='" + surName + '\n' +
+                " phone='" + phone + '\n' +
+                " email='" + email + '\n' +
+                '}';
     }
 }

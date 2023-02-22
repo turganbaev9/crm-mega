@@ -1,16 +1,8 @@
 package model;
 
-public class Mentor extends  User{
+public class Mentor extends  User {
     private double experience;
     private double salaryforlesson;
-
-    public double getSalaryforlesson() {
-        return salaryforlesson;
-    }
-
-    public void setSalaryforlesson(double salaryforlesson) {
-        this.salaryforlesson = salaryforlesson;
-    }
 
     public double getExperience() {
         return experience;
@@ -18,5 +10,13 @@ public class Mentor extends  User{
 
     public void setExperience(double experience) {
         this.experience = experience;
+    }
+
+    public double getSalaryforlesson() {
+        return salaryforlesson;
+    }
+
+    public void setSalaryforlesson(double salaryforlesson) {
+        this.salaryforlesson = salaryforlesson;
     }
 }

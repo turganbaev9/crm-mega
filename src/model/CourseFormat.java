@@ -1,20 +1,22 @@
 package model;
 
-public class CourseFormat  extends  BaseEntity{
+public class CourseFormat extends  BaseEntity{
     private  String format;
     private  int durationInWeek;
+
     private  boolean isOnline;
     private  int lessonDuration;
-    private  int lessonCoutPerWeek;
+
+    private  int lessonCountPerWeek;
 
     @Override
     public String toString() {
         return "CourseFormat{" +
-                "format='" + format + '\'' +
-                ", durationInWeek=" + durationInWeek +
-                ", isOnline=" + isOnline +
-                ", lessonDuration=" + lessonDuration +
-                ", lessonCoutPerWeek=" + lessonCoutPerWeek +
+                "format='" + format + '\n' +
+                " durationInWeek=" + durationInWeek +'\n'+
+                " isOnline=" + isOnline +'\n'+
+                " lessonDuration=" + lessonDuration +'\n'+
+                " lessonCoutPerWeek=" + lessonCountPerWeek +'\n'+
                 '}';
     }
 
@@ -50,11 +52,11 @@ public class CourseFormat  extends  BaseEntity{
         this.lessonDuration = lessonDuration;
     }
 
-    public int getLessonCoutPerWeek() {
-        return lessonCoutPerWeek;
+    public int getLessonCountPerWeek() {
+        return lessonCountPerWeek;
     }
 
-    public void setLessonCoutPerWeek(int lessonCoutPerWeek) {
-        this.lessonCoutPerWeek = lessonCoutPerWeek;
+    public void setLessonCountPerWeek(int lessonCountPerWeek) {
+        this.lessonCountPerWeek = lessonCountPerWeek;
     }
 }
