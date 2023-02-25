@@ -1,7 +1,10 @@
 package model;
 
+import enums.Format;
+
 public class CourseFormat extends  BaseEntity{
-    private  String format;
+    private Format format;
+    private  String Format;
     private  int durationInWeek;
 
     private  boolean isOnline;
@@ -12,19 +15,21 @@ public class CourseFormat extends  BaseEntity{
     @Override
     public String toString() {
         return "CourseFormat{" +
-                "format='" + format + '\n' +
-                " durationInWeek=" + durationInWeek +'\n'+
-                " isOnline=" + isOnline +'\n'+
-                " lessonDuration=" + lessonDuration +'\n'+
-                " lessonCoutPerWeek=" + lessonCountPerWeek +'\n'+
+                "format=" + format +
+                ", durationInWeek=" + durationInWeek +
+                ", isOnline=" + isOnline +
+                ", lessonDuration=" + lessonDuration +
+                ", lessonCountPerWeek=" + lessonCountPerWeek +
+                ", id=" + id +
+                ", dateCreated=" + dateCreated +
                 '}';
     }
 
-    public String getFormat() {
+    public Format getFormat() {
         return format;
     }
 
-    public void setFormat(String format) {
+    public void setFormat(Format format) {
         this.format = format;
     }
 

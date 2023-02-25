@@ -1,5 +1,7 @@
 package model;
 
+import dao.MentorDao;
+
 public class Mentor extends  User {
     private double experience;
     private double salaryforlesson;
@@ -19,4 +21,6 @@ public class Mentor extends  User {
     public void setSalaryforlesson(double salaryforlesson) {
         this.salaryforlesson = salaryforlesson;
     }
+
+
 }

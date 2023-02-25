@@ -8,54 +8,52 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class ManagerDaoImpl implements ManagerDao {
-private final String PATH_FILE="C:\\Users\\user\\Documents\\intelidij projects\\crm-mega\\lib\\Manager.txt";
-private final File MANAGER_FILE=new File(PATH_FILE);
+    private final String PATH_FILE = "C:\\Users\\user\\Documents\\intelidij projects\\crm-mega\\lib\\Manager.txt";
+    private final File MANAGER_FILE = new File(PATH_FILE);
+    private int count ;
 
     public ManagerDaoImpl() {
         boolean isCreated = false;
         if (!MANAGER_FILE.exists()) {
             try {
-            isCreated=  MANAGER_FILE.createNewFile();
+                isCreated = MANAGER_FILE.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         if (isCreated) {
             System.out.println("создан документ");
+
         }
     }
 
     @Override
     public void save(Manager manager) {
-
+ count = getCount();
         try {
-            PrintWriter out =new PrintWriter(new FileOutputStream(PATH_FILE,true));
-        out.print(manager.getId()+ " ");
-        out.print(manager.getName()+ " ");
+            PrintWriter out = new PrintWriter(new FileOutputStream(PATH_FILE, true));
+            out.print(++count + " " );
+            out.print(manager.getName() + " ");
             out.print(manager.getSurName() + " ");
             out.print(manager.getEmail() + " ");
-            out.print(manager.getPhone() +  " ");
+            out.print(manager.getPhone() + " ");
             out.print(manager.getSalary() + " ");
-            out.print(manager.getDateCreated() + " " );
+            out.print(manager.getDateCreated().toString().substring(0, 22)  );
             out.println();
-out.close();
+            out.close();
 
-        }
-
-
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public Manager[] findAll() {
-      Manager[]managers=new Manager[100];
 
+        Manager[] managers = new Manager[count];
         try {
-            Scanner   scanner = new Scanner(MANAGER_FILE);
-
-            for (int i = 0; scanner.hasNextLine() ; i++) {
+            Scanner scanner = new Scanner(MANAGER_FILE);
+            for (int i = 0; scanner.hasNextLine(); i++) {
                 Manager manager = new Manager();
 
                 manager.setId(scanner.nextLong());
@@ -74,7 +72,25 @@ out.close();
 
 
         return managers;
+
+    }
+
+    private int getCount() {
+        int count=0;
+        try {
+            Scanner scanner = new Scanner(MANAGER_FILE);
+        while (scanner.hasNextLine()){
+            count++;
+            scanner.nextLine();
+        }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return count;
     }
 
 
 }
+
+
+

@@ -3,10 +3,12 @@ package model;
 import java.time.LocalDateTime;
 
 public abstract class BaseEntity {
+    private  String format;
 
-    private long id;
 
-private LocalDateTime dateCreated=LocalDateTime.now();
+
+    protected long id;
+   protected LocalDateTime dateCreated=LocalDateTime.now();
 
     public long getId() {
         return id;
@@ -24,11 +26,6 @@ private LocalDateTime dateCreated=LocalDateTime.now();
         this.dateCreated = dateCreated;
     }
 
-    @Override
-    public String toString() {
-        return "BaseEntity{" +
-                "id=" + id +
-                ", dateCreated=" + dateCreated +
-                '}';
-    }
+
+
 }

@@ -5,10 +5,10 @@ import java.time.LocalDateTime;
 public  abstract  class User extends BaseEntity {
 
 
-    private String name;
-    private String surName;
-    private String phone;
-    private String email;
+    protected String name;
+    protected String surName;
+    protected String phone;
+    protected String email;
 
     public String getName() {
         return name;
@@ -42,13 +42,5 @@ public  abstract  class User extends BaseEntity {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\''+ "\n"+
-                "surName='" + surName + '\n' +
-                " phone='" + phone + '\n' +
-                " email='" + email + '\n' +
-                '}';
-    }
+
 }
