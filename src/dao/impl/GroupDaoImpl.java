@@ -28,25 +28,28 @@ public class GroupDaoImpl implements  GroupDao {
 
     }
 
-
     @Override
     public void save(Mentor mentor) {
+
 
     }
 
     @Override
-    public void save(Group group) {
+    public void save(Group group) throws IOException {
+        PrintWriter out=null;
         try {
-            PrintWriter out = new PrintWriter(new FileOutputStream(PATH_FILE, true));
+            out = new PrintWriter(new FileOutputStream(PATH_FILE, true));
 out.print(group.getName() + " " );
 out.print(group.getRoom()+ " " );
 out.print(group.getStartTime() + "  " );
 
             out.println();
-            out.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
+        }finally {
+        close(out);
+    }
 
     }
 
@@ -59,16 +62,19 @@ out.print(group.getStartTime() + "  " );
                 Group group = new Group();
                 group.setName(scanner.next());
                 group.setRoom(scanner.next());
-            //group.setStartTime(LocalTime.parse(scanner.nextLine().substring(1)));
-            groups[i]=group;
+                //group.setStartTime(LocalTime.parse(scanner.nextLine().substring(1)));
+                groups[i] = group;
+
             }
-
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            {
+            //    close(out);
+
+
+            }
+
         }
-
-
         return groups;
     }
 }

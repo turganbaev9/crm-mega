@@ -29,9 +29,10 @@ if (isCreated){
 
    }
     @Override
-    public void save(Mentor mentor) {
+    public void save(Mentor mentor) throws IOException {
+       PrintWriter out=null;
         try {
-                PrintWriter out = new PrintWriter(new FileOutputStream(PATH_FILE, true));
+                 out = new PrintWriter(new FileOutputStream(PATH_FILE, true));
                 out.print(mentor.getId());
 out.print(mentor.getName() + " " );
 out.print(mentor.getSurName() + " " );
@@ -44,7 +45,9 @@ out.println();
 out.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-            }
+            }finally {
+        close(out);
+    }
 
     }
 
