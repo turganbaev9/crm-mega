@@ -54,7 +54,8 @@ out.print(group.getStartTime() + "  " );
     }
 
     @Override
-    public Group[] findAll() {
+    public Group[] findAll() throws IOException {
+        PrintWriter out=null;
         Group[] groups = new Group[100];
         try {
             Scanner scanner = new Scanner(GROUP_FILE);
@@ -68,13 +69,10 @@ out.print(group.getStartTime() + "  " );
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            {
-            //    close(out);
-
-
-            }
-
+        }finally {
+            close(out);
         }
+            //    close(out);
         return groups;
     }
 }

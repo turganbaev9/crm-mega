@@ -51,7 +51,8 @@ PrintWriter out=null;
     }
 
     @Override
-    public Student[] findAll() {
+    public Student[] findAll() throws IOException {
+        PrintWriter out=null;
         Student[] students = new Student[100];
         try {
             Scanner scanner = new Scanner(Student_File);
@@ -68,9 +69,9 @@ PrintWriter out=null;
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-
-
+        }finally {
+        close(out);
+    }
         return students;
     }
     private int getCount() {

@@ -52,7 +52,8 @@ out.close();
     }
 
     @Override
-    public Mentor[] findAll() {
+    public Mentor[] findAll() throws IOException {
+        PrintWriter out=null;
         Mentor[]mentors=new Mentor[100];
         try {
             Scanner scanner=new Scanner(MENTOR_FILE);
@@ -72,7 +73,9 @@ out.close();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
+            }finally {
+        close(out);
+    }
 
 
         return mentors;
