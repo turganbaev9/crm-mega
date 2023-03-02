@@ -1,14 +1,17 @@
 package dao.impl;
 
+import dao.CrudDao;
 import model.Group;
 import model.Mentor;
 
-public interface GroupDao {
+import java.io.IOException;
+
+public interface GroupDao extends CrudDao {
     void save(Mentor mentor);
 
-    void save(Group group);
+    void save(Group group) throws IOException;
 
-    Group[] findAll();
+    Group[] findAll() throws IOException;
 
 
 }

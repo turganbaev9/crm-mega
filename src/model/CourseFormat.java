@@ -2,15 +2,18 @@ package model;
 
 import enums.Format;
 
+import java.text.SimpleDateFormat;
+
 public class CourseFormat extends  BaseEntity{
     private Format format;
-    private  String Format;
     private  int durationInWeek;
 
     private  boolean isOnline;
     private  int lessonDuration;
 
     private  int lessonCountPerWeek;
+
+
 
     @Override
     public String toString() {

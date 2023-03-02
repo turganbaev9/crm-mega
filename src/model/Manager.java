@@ -11,6 +11,7 @@ public class Manager extends  User {
         this.salary = salary;
     }
 
+
     @Override
     public String toString() {
         return "Manager{" +
@@ -20,7 +21,8 @@ public class Manager extends  User {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 "salary=" + salary +
-                ", dateCreated=" + dateCreated +
+               // ", dateCreated=" + dateCreated+= "dd MM yyyy" +
+                "sdf=" + sdf +
                 '}';
     }
 }

@@ -4,8 +4,8 @@ import model.Manager;
 
 import java.io.IOException;
 
-public interface ManagerDao {
-    void save(Manager manager);
+public interface ManagerDao  extends CrudDao{
+    void save(Manager manager) throws IOException;
 Manager[] findAll();
 
 
