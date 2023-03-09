@@ -1,7 +1,5 @@
 package model;
 
-import dao.MentorDao;
-
 public class Mentor extends  User {
     private double experience;
     private double salaryforlesson;

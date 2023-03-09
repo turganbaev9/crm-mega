@@ -1,6 +1,5 @@
 package dao.impl;
 
-import dao.ManagerDao;
 import model.Manager;
 
 import java.io.*;

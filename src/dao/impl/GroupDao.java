@@ -1,6 +1,5 @@
 package dao.impl;
 
-import dao.CrudDao;
 import model.Group;
 import model.Mentor;
 

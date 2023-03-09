@@ -1,8 +1,7 @@
 package createUser;
 
-import dao.ManagerDao;
+import dao.impl.ManagerDao;
 import dao.impl.ManagerDaoImpl;
-import enums.Command;
 import model.Manager;
 
 import java.io.IOException;

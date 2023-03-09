@@ -20,41 +20,44 @@ public class CreateCommandForUsers extends BaseEntity {
     public void Commands() throws IOException {
 
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Выберите комманду SAVE or FINDALL");
+        loop: while (true) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Выберите комманду SAVE or FINDALL");
 
-        command = Command.valueOf(sc.nextLine());
+            command = Command.valueOf(sc.nextLine());
 
-        switch (command) {
-            case FINDALL -> {
-                System.out.println("Пока не создали");
-                System.out.println();
-            }
-            case SAVE -> {
+            switch (command) {
+                case FINDALL : {
+                    System.out.println("Пока не создали");
+                    System.out.println();
+                    break;
+                }
+                case SAVE : {
 
-                System.out.println("Выберите одного из пользователей  MANAGER OR STUDENT");
-                chooseUser = ChooseUser.valueOf(sc.nextLine());
-                if (chooseUser != null) {
+                    System.out.println("Выберите одного из пользователей  MANAGER OR STUDENT");
+                    chooseUser = ChooseUser.valueOf(sc.nextLine());
                     switch (chooseUser) {
-                        case MANAGER -> {
+                        case MANAGER : {
                             ManagercreateUser managercreateUser = new ManagercreateUser();
                             managercreateUser.createManager();
+                            break loop;
                         }
 
-                        case STUDENT -> {
+                        case STUDENT : {
                             StudentcreateUser studentcreateUser = new StudentcreateUser();
                             studentcreateUser.setUser();
+                            break loop;
                         }
-
                     }
+                    break loop;
                 }
-
             }
-
+            break loop;
         }
     }
-
 }
+
+
 
 //
 //   // @Override

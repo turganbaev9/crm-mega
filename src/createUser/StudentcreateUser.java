@@ -1,8 +1,6 @@
 package createUser;
 
 
-
-
 import dao.impl.StudentDao;
 import dao.impl.StudentDaoImpl;
 import enums.Command;
@@ -12,11 +10,12 @@ import model.User;
 
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class StudentcreateUser {
-    Student student=new Student();
+    Student student = new Student();
     Scanner sc = new Scanner(System.in);
 
     public void setUser() throws IOException {
@@ -27,11 +26,11 @@ public class StudentcreateUser {
         System.out.println("Ваш номер телефона");
         student.setPhone(sc.next());
         System.out.println("Ваш электронный адресс");
-student.setEmail(sc.next());
+        student.setEmail(sc.next());
         System.out.println("СПАСИБО");
-//student.setDob();
-  student.setDateCreated(LocalDateTime.now());
-  StudentDao studentDao=new StudentDaoImpl();
-  studentDao.save(student);
+student.setDob(LocalDate.parse(sc.next()));
+        student.setDateCreated(LocalDateTime.now());
+        StudentDao studentDao = new StudentDaoImpl();
+        studentDao.save(student);
     }
 }

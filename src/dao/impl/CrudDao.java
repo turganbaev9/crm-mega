@@ -1,4 +1,4 @@
-package dao;
+package dao.impl;
 
 import java.io.Closeable;
 import java.io.IOException;

@@ -16,14 +16,14 @@ public class Main {
             studentcreateUser.setUser();
 
 
-            ArrayList<Integer>arrayList = new ArrayList<>();
-            for (int i = 0; i <100 ; i++) {
-               arrayList.add((int) (Math.random()*100+1));
-                System.out.println(arrayList);
+//            ArrayList<Integer>arrayList = new ArrayList<>();
+//            for (int i = 0; i <100 ; i++) {
+//               arrayList.add((int) (Math.random()*100+1));
+//                System.out.println(arrayList);
          // int[] count=new int[
 
 
-            }
+
 
         //    System.out.println(Arrays.toString(courseFormatDao.findAll()));
 

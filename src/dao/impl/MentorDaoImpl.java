@@ -1,6 +1,5 @@
 package dao.impl;
 
-import dao.MentorDao;
 import model.Mentor;
 
 import java.io.*;

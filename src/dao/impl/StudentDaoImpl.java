@@ -10,7 +10,8 @@ import java.util.Scanner;
 public class StudentDaoImpl implements StudentDao {
     private final String PATH_FILE = "C:\\Users\\user\\Documents\\intelidij projects\\crm-mega\\lib\\Student.txt";
     private final File Student_File = new File(PATH_FILE);
-    private int count ;
+    private int count;
+
     public StudentDaoImpl() {
         boolean isCreated = false;
 
@@ -29,30 +30,30 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void save(Student student) throws IOException {
-        count=getCount();
-PrintWriter out=null;
+        count = getCount();
+        PrintWriter out = null;
         try {
             out = new PrintWriter(new FileOutputStream(PATH_FILE, true));
-            out.print(++count + " " );
+            out.print(++count + " ");
             out.print(student.getName() + "  ");
-            out.print(student.getSurName()+ "  ");
-            out.print(student.getDob()+ "  ");
-            out.print(student.getDateCreated()+ "  ");
-            out.print(student.getEmail()+ "  ");
-            out.print(student.getPhone()+ "  ");
+            out.print(student.getSurName() + "  ");
+            out.print(student.getDob() + "  ");
+            out.print(student.getDateCreated() + "  ");
+            out.print(student.getEmail() + "  ");
+            out.print(student.getPhone() + "  ");
             out.println();
-            out.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
 
-        }finally {
+        } finally {
             close(out);
         }
     }
 
     @Override
     public Student[] findAll() throws IOException {
-        PrintWriter out=null;
+        PrintWriter out = null;
         Student[] students = new Student[100];
         try {
             Scanner scanner = new Scanner(Student_File);
@@ -63,26 +64,30 @@ PrintWriter out=null;
                 student.setEmail(scanner.next());
                 student.setPhone(scanner.next());
                 //group.setStartTime(LocalTime.parse(scanner.nextLine().substring(1)));
-                students[i]=student;
+                students[i] = student;
             }
 
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }finally {
-        close(out);
-    }
+        } finally {
+            close(out);
+        }
         return students;
     }
+
     private int getCount() {
-        int count=0;
+        BufferedReader reader;
         try {
-            Scanner scanner = new Scanner(Student_File);
-            while (scanner.hasNextLine()){
-                count++;
-                scanner.nextLine();
+            reader = new BufferedReader(new FileReader(Student_File));
+            String line = reader.readLine();
+            while (line != null) {
+                System.out.println(line);
+                count++;            // read next line
+                line = reader.readLine();
             }
-        } catch (FileNotFoundException e) {
+            reader.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return count;
